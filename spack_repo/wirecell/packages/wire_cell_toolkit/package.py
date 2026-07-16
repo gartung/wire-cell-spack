@@ -253,6 +253,10 @@ class WireCellToolkit(Package, CudaPackage):
         if 'root' in spec:
             cfg += ['--with-root=' + spec['root'].prefix ]
 
+        if 'triton' in spec:
+            cfg += ['--with-triton=' + spec['triton'].prefix ]
+            cfg += ['--with-grpc=' + spec['grpc'].prefix ]
+
         # one or the other assured by +/~cppjsonnet?
         if 'jsonnet' in spec:
             jsonnet = 'jsonnet'
